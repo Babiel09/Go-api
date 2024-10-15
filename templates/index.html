@@ -1,0 +1,132 @@
+{{define "Index"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo a criar APIS</title>
+</head>
+<body>
+
+    <div>
+        <h1>Minha primeira aplicação WEB com GO</h1>
+        <h2>Aprendendo com o professor <strong>"Guilherme Lima"</strong> da Alura</h2>
+    </div>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Careca</th>
+                    <th>Feito para homens com cabelo</th>
+                    <th>R$ 56234,00</th>
+                    <th>27</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<style>
+    /* Estilo geral */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Arial', sans-serif;
+}
+
+body {
+ background-color: #f4f4f9;
+ color: #333;
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+h1 {
+ color: #4CAF50;
+ text-align: center;
+ margin-bottom: 10px;
+ font-size: 2.5em;
+}
+
+h2 {
+ color: #555;
+ text-align: center;
+ margin-bottom: 20px;
+ font-size: 1.5em;
+}
+
+/* Estilo para a tabela */
+.divTable {
+ width: 80%;
+ margin-top: 20px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+ width: 100%;
+ border-collapse: collapse;
+ background-color: #fff;
+ border-radius: 8px;
+ overflow: hidden;
+}
+
+thead {
+ background-color: #4CAF50;
+ color: white;
+}
+
+th, td {
+ padding: 15px;
+ text-align: left;
+ border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+ background-color: #f1f1f1;
+}
+
+th {
+ font-size: 1.1em;
+}
+
+tbody th {
+ color: #4CAF50;
+}
+
+tbody td {
+ color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+ h1 {
+     font-size: 2em;
+ }
+
+ h2 {
+     font-size: 1.2em;
+ }
+
+ .divTable {
+     width: 100%;
+ }
+
+ th, td {
+     padding: 10px;
+ }
+}
+
+ </style>
+</html>
+{{end}}
