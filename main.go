@@ -6,6 +6,11 @@ import (
 	"text/template"
 )
 
+type Produtos struct {
+	Nome, Descricao, Preco string
+	Quantidade             int
+}
+
 var tpm = template.Must(template.ParseGlob("templates/*.html")) //Eu queor tudo que seja .html
 
 func main() {
@@ -15,5 +20,8 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) { //Esse carinha precisa de receber os prâmetros para ler e para escrever
-	tpm.ExecuteTemplate(w, "Index", nil)
+	produtos := []Produtos{
+		{"Nootebook", "Muito bom", "R$ 789,00", 2},
+	}
+	tpm.ExecuteTemplate(w, "Index", produtos)
 }
