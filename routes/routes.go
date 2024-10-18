@@ -11,7 +11,8 @@ import (
 func HandleRequest() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", controllers.Home)
-	r.HandleFunc("/caes", controllers.Cachorros).Methods("Get") //Definindo o método que será usado
+	r.HandleFunc("/caes", controllers.Cachorros).Methods("Get")
+	r.HandleFunc("/caes", controllers.PostCachorros).Methods("Post")
 	r.HandleFunc("/caes/{id}", controllers.PegarCao).Methods("Get")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }

@@ -28,3 +28,13 @@ func PegarCao(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(caoDbId) //Transformo minha "var" em JSON
 
 }
+
+// Meu primeiro método POST :)
+func PostCachorros(w http.ResponseWriter, r *http.Request) {
+	var caoPost models.Caes
+	//O decoder transforma o "json" em algo que o Go entenda
+	json.NewDecoder(r.Body).Decode(&caoPost)
+	database.DB.Create(&caoPost)
+	json.NewEncoder(w).Encode(caoPost)
+	//Depois de postar o novo cão, eu irei transformalo em json
+}
