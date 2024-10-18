@@ -13,6 +13,7 @@ func HandleRequest() {
 	r.HandleFunc("/", controllers.Home)
 	r.HandleFunc("/caes", controllers.Cachorros).Methods("Get")
 	r.HandleFunc("/caes", controllers.PostCachorros).Methods("Post")
+	r.HandleFunc("/caes/{id}", controllers.EditarCachorros).Methods("Put")
 	r.HandleFunc("/caes/{id}", controllers.DeleteCachorros).Methods("Delete")
 	r.HandleFunc("/caes/{id}", controllers.PegarCao).Methods("Get")
 	log.Fatal(http.ListenAndServe(":8000", r))

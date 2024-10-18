@@ -50,3 +50,14 @@ func DeleteCachorros(w http.ResponseWriter, r *http.Request) {
 	//Deletando no json também:
 	json.NewEncoder(w).Encode(caoDelete)
 }
+
+// Criando meu primeiro PUT :)
+func EditarCachorros(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	var caoPut models.Caes
+	database.DB.First(&caoPut, id)
+	json.NewDecoder(r.Body).Decode(&caoPut)
+	database.DB.Save(&caoPut)
+	json.NewEncoder(w).Encode(caoPut)
+}
