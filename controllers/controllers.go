@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/Babiel09/Go-api/database"
 	"github.com/Babiel09/Go-api/models"
 	"github.com/gorilla/mux"
 )
@@ -15,7 +16,9 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func Cachorros(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(models.Cao)
+	var caoDB []models.Caes
+	database.DB.Find(&caoDB)
+	json.NewEncoder(w).Encode(caoDB)
 }
 
 func PegarCao(w http.ResponseWriter, r *http.Request) {
