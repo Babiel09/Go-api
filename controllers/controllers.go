@@ -38,3 +38,15 @@ func PostCachorros(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(caoPost)
 	//Depois de postar o novo cão, eu irei transformalo em json
 }
+
+// Criando meu primeiro DELETE :)
+func DeleteCachorros(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id := vars["id"]
+	var caoDelete models.Caes
+
+	//Deletando do meu Banco de dados:
+	database.DB.Delete(&caoDelete, id)
+	//Deletando no json também:
+	json.NewEncoder(w).Encode(caoDelete)
+}
