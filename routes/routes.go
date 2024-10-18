@@ -5,11 +5,13 @@ import (
 	"net/http"
 
 	"github.com/Babiel09/Go-api/controllers"
+	"github.com/Babiel09/Go-api/middleware"
 	"github.com/gorilla/mux"
 )
 
 func HandleRequest() {
 	r := mux.NewRouter()
+	r.Use(middleware.ContentTypeMiddleware)
 	r.HandleFunc("/", controllers.Home)
 	r.HandleFunc("/caes", controllers.Cachorros).Methods("Get")
 	r.HandleFunc("/caes", controllers.PostCachorros).Methods("Post")

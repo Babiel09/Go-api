@@ -15,7 +15,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func Cachorros(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-type", "application/json")
 	var caoDB []models.Caes          //Armazeno em uma "var" um Array com todos os Tipos da Struct Caes
 	database.DB.Find(&caoDB)         //Uso o gorm para achar a "var" que almejo.
 	json.NewEncoder(w).Encode(caoDB) //Transformo ela em json
