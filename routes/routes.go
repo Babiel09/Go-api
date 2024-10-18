@@ -5,10 +5,13 @@ import (
 	"net/http"
 
 	"github.com/Babiel09/Go-api/controllers"
+	"github.com/gorilla/mux"
 )
 
 func HandleRequest() {
-	http.HandleFunc("/", controllers.Home)
-	http.HandleFunc("/caes", controllers.Cachorros)
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	r := mux.NewRouter()
+	r.HandleFunc("/", controllers.Home)
+	r.HandleFunc("/caes", controllers.Cachorros).Methods("Get") //Definindo o método que será usado
+	r.HandleFunc("/caes/{id}", controllers.PegarCao).Methods("Get")
+	log.Fatal(http.ListenAndServe(":8000", r))
 }

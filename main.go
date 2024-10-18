@@ -9,7 +9,8 @@ import (
 
 func main() {
 	models.Cao = []models.Caes{
-		{"Chacal", "Esse foi o meu primeiro cachorro"},
+		{Id: 1, Nome: "Chacal", Historia: "Esse foi o meu terceiro cachorro"},
+		{Id: 2, Nome: "Hiena", Historia: "Essa foi a minha primeira cadela"},
 	}
 	fmt.Println("API localizada em: http://localhost:8000")
 	routes.HandleRequest()
